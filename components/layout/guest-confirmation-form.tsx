@@ -41,8 +41,7 @@ const formSchema = z.object({
   poznamka: z.string().optional(),
 })
 
-export function GuestConfirmationForm() {
-  const [isMounted, setIsMounted] = useState<boolean>(false)
+function GuestConfirmationForm() {
   const [showConfetti, setShowConfetti] = useState<boolean>(false)
   // TODO: Add loading state
   const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -92,10 +91,6 @@ export function GuestConfirmationForm() {
   }
 
   useEffect(() => {
-    setIsMounted(true)
-  }, [])
-
-  useEffect(() => {
     if (showConfetti) {
       const timer = setTimeout(() => {
         setShowConfetti(false)
@@ -104,8 +99,6 @@ export function GuestConfirmationForm() {
       return () => clearTimeout(timer)
     }
   }, [showConfetti])
-
-  if (!isMounted) return
 
   return (
     <div className="relative w-full">
@@ -215,3 +208,4 @@ export function GuestConfirmationForm() {
     </div>
   )
 }
+export default GuestConfirmationForm

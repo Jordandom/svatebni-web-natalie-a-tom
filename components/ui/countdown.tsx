@@ -1,17 +1,10 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import CountdownReact, { CountdownRenderProps } from 'react-countdown'
 
 const countdownDate = new Date(2024, 8, 24, 13, 0, 0)
 
-export const Countdown = () => {
-  const [isMounted, setIsMounted] = useState<boolean>(false)
-
-  useEffect(() => {
-    setIsMounted(true)
-  }, [])
-
+const Countdown = () => {
   const renderer = ({ days, hours, minutes, seconds, completed }: CountdownRenderProps) => {
     if (completed) {
       // Render a completed state
@@ -46,5 +39,7 @@ export const Countdown = () => {
     }
   }
 
-  return isMounted ? <CountdownReact date={countdownDate} renderer={renderer} /> : null
+  return <CountdownReact date={countdownDate} renderer={renderer} />
 }
+
+export default Countdown

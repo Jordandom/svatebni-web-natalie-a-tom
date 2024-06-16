@@ -6,7 +6,7 @@ import 'leaflet-defaulticon-compatibility'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import { H1 } from '@/components/ui/typography'
 
-export const Map = () => {
+const Map = () => {
   const position: [number, number] = [49.748564067315094, 13.381859299917464]
 
   return (
@@ -31,3 +31,5 @@ export const Map = () => {
     </div>
   )
 }
+
+export default Map

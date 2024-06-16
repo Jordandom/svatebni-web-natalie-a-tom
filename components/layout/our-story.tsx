@@ -1,7 +1,7 @@
 import { Meteors } from '@/components/ui/meteors'
 import { H1 } from '@/components/ui/typography'
 
-export const OurStory = () => {
+const OurStory = () => {
   return (
     <div className="relative flex w-full flex-col items-center gap-8">
       <H1 className="uppercase">
@@ -28,3 +28,5 @@ export const OurStory = () => {
     </div>
   )
 }
+
+export default OurStory

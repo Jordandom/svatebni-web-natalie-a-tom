@@ -1,18 +1,8 @@
 'use client'
 
 import { cn } from '@/lib/utils'
-import { useEffect, useState } from 'react'
 
 export const Meteors = ({ number, className }: { number?: number; className?: string }) => {
-  const [isMounted, setIsMounted] = useState<boolean>(false)
-
-  // Added a useEffect to prevent the warning from Next.js Warning: Prop `style` did not match Server. Even though i used the 'use client'
-
-  useEffect(() => {
-    setIsMounted(true)
-  }, [])
-
-  if (!isMounted) return
   const meteors = new Array(number || 20).fill(true)
   return (
     <>
