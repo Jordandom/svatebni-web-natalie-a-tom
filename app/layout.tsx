@@ -8,9 +8,6 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Naty a Tom',
   description: 'Svatba Natálie Černické a Tomáše Šedivého',
-  icons: {
-    icon: '/favicon.ico',
-  },
 }
 
 export default function RootLayout({
@@ -20,6 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html className="overflow-y-scroll" lang="cs">
+      <link rel="icon" href="/favicon.ico" sizes="any" />
+      <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+      <link rel="manifest" href="/site.webmanifest" />
       <body className={`overflow-x-hidden ${inter.className}`}>{children}</body>
       <Toaster richColors position="top-center" />
     </html>
