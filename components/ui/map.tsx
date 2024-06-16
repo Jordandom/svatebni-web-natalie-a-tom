@@ -14,6 +14,11 @@ const Map = () => {
       <H1 className="uppercase">
         <span className="underline-offset-3 text-blue decoration-8">Poloha</span>
       </H1>
+
+      <div className="flex flex-col items-center">
+        <p className="text-center">Courtyard by Marriott</p>
+        <p className="text-center">sady 5. května 57, 301 00 Plzeň 3</p>
+      </div>
       <MapContainer
         className="h-[600px] w-full"
         center={position}
