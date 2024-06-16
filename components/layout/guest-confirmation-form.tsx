@@ -46,11 +46,11 @@ function GuestConfirmationForm() {
   const [showConfetti, setShowConfetti] = useState<boolean>(false)
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const { width, height } = useWindowSize()
-
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      access_key: '05118227-c481-4f67-8882-aab298c4f9a9',
+      access_key: process.env.WEB3_FORM,
+      // '05118227-c481-4f67-8882-aab298c4f9a9',
       jmeno_prijmeni: '',
       ucast_na_svatbe: null,
       ubytovani: null,
