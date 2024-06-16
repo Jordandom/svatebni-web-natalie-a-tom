@@ -20,6 +20,7 @@ import Confetti from 'react-confetti'
 import { toast } from 'sonner'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Mail } from 'lucide-react'
+import { Spinner } from '@/components/ui/spinner'
 
 const formSchema = z.object({
   access_key: z.string(),
@@ -43,11 +44,8 @@ const formSchema = z.object({
 
 function GuestConfirmationForm() {
   const [showConfetti, setShowConfetti] = useState<boolean>(false)
-  // TODO: Add loading state
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const { width, height } = useWindowSize()
-
-  console.log('🚀 ~ GuestConfirmationForm ~ isLoading:', isLoading)
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -198,9 +196,14 @@ function GuestConfirmationForm() {
               )}
             />
           </div>
-          <Button className="flex items-center gap-8 text-2xl" variant="default" type="submit">
-            Odeslat
-            <Mail />
+          <Button className="text-2xl" variant="default" type="submit">
+            {isLoading ? (
+              <Spinner />
+            ) : (
+              <div className="flex items-center gap-8">
+                Odeslat <Mail />
+              </div>
+            )}
           </Button>
         </form>
       </Form>
