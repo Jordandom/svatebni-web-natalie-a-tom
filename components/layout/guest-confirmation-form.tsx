@@ -44,6 +44,7 @@ const formSchema = z.object({
 export function GuestConfirmationForm() {
   const [isMounted, setIsMounted] = useState<boolean>(false)
   const [showConfetti, setShowConfetti] = useState<boolean>(false)
+  // TODO: Add loading state
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const { width, height } = useWindowSize()
 
@@ -63,7 +64,6 @@ export function GuestConfirmationForm() {
   const { reset } = form
 
   async function onSubmit(data: z.infer<typeof formSchema>) {
-    console.log(data)
     setIsLoading(true)
 
     await fetch('https://api.web3forms.com/submit', {

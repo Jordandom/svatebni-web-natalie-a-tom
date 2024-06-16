@@ -4,11 +4,12 @@ import { OurStory } from '@/components/layout/our-story'
 import { Countdown } from '@/components/ui/countdown'
 import { PhotoCarousel } from '@/components/ui/photo-carousel'
 import { TracingBeam } from '@/components/ui/tracing-beam'
-import { Map } from '@/components/ui/map'
 import { Schedule } from '@/components/layout/schedule'
 import { Gifts } from '@/components/layout/gifts'
 import { Cormorant_Garamond } from 'next/font/google'
 import { DressCode } from '@/components/layout/dresscode'
+import dynamic from 'next/dynamic'
+const Map = dynamic({ ssr: false })
 
 const cormorantGaramond = Cormorant_Garamond({
   weight: '400',
