@@ -1,16 +1,38 @@
+import { GuestConfirmationForm } from '@/components/layout/guest-confirmation-form'
+import { Hero } from '@/components/layout/hero'
+import { OurStory } from '@/components/layout/our-story'
 import { Countdown } from '@/components/ui/countdown'
-import { WavyBackground } from '@/components/ui/wavy-background'
+import { PhotoCarousel } from '@/components/ui/photo-carousel'
+import { TracingBeam } from '@/components/ui/tracing-beam'
+import { Map } from '@/components/ui/map'
+import { Schedule } from '@/components/layout/schedule'
+import { Gifts } from '@/components/layout/gifts'
+import { Cormorant_Garamond } from 'next/font/google'
+import { DressCode } from '@/components/layout/dresscode'
+
+const cormorantGaramond = Cormorant_Garamond({
+  weight: '400',
+  subsets: ['latin'],
+})
 
 export default function Home() {
   return (
-    <WavyBackground className="mx-auto flex max-w-4xl flex-col items-center gap-10 pb-40">
-      <Countdown />
-      <p className="inter-var text-center text-2xl font-bold text-white md:text-4xl lg:text-7xl">
-        Naty a Tom
-      </p>
-      <p className="inter-var mt-4 text-center text-base font-normal text-white md:text-lg">
-        24. 8. 2024
-      </p>
-    </WavyBackground>
+    <div className={cormorantGaramond.className}>
+      <Hero />
+      <TracingBeam className="px-6">
+        <div className="relative flex flex-col text-3xl antialiased">
+          <div className="flex flex-col items-center gap-16 p-1 sm:p-8">
+            <PhotoCarousel />
+            <OurStory />
+            <Countdown />
+            <Schedule />
+            <Gifts />
+            <DressCode />
+            <GuestConfirmationForm />
+            <Map />
+          </div>
+        </div>
+      </TracingBeam>
+    </div>
   )
 }

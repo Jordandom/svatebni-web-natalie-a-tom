@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { Toaster } from '@/components/ui/sonner'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,8 +16,9 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="cs">
-      <body className={inter.className}>{children}</body>
+    <html className="overflow-y-scroll" lang="cs">
+      <body className={`overflow-x-hidden ${inter.className}`}>{children}</body>
+      <Toaster richColors position="top-center" />
     </html>
   )
 }

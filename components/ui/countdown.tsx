@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import CountdownReact, { CountdownRenderProps } from 'react-countdown'
 
 const countdownDate = new Date(2024, 8, 24, 13, 0, 0)
+
 export const Countdown = () => {
   const [isMounted, setIsMounted] = useState<boolean>(false)
 
@@ -18,22 +19,32 @@ export const Countdown = () => {
     } else {
       // Render a countdown
       return (
-        <div className="flex items-center gap-1">
-          <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight text-white lg:text-5xl">
-            {days}:
-          </h1>
-          <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight text-white lg:text-5xl">
-            {hours}:
-          </h1>
-          <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight text-white lg:text-5xl">
-            {minutes}:
-          </h1>
-          <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight text-white lg:text-5xl">
-            {seconds}
-          </h1>
+        <div className="flex h-full min-h-[20rem] w-full flex-col items-center justify-center bg-countdown-background bg-100% bg-center bg-no-repeat md:h-96">
+          <div className="flex gap-0 px-8 text-2xl tracking-tight text-blue sm:gap-4 sm:px-20 sm:text-8xl">
+            <div className="flex flex-col items-center gap-1 sm:gap-8">
+              <h1 className="font-bold">{days}</h1>
+              <div className="text-2xl md:text-4xl">Den</div>
+            </div>
+            <div className="mb-8 font-bold">:</div>
+            <div className="flex flex-col items-center gap-1 sm:gap-8">
+              <h1 className="font-bold">{hours}</h1>
+              <div className="text-2xl md:text-4xl">Hodina</div>
+            </div>
+            <div className="mb-8 font-bold">:</div>
+            <div className="flex flex-col items-center gap-1 sm:gap-8">
+              <h1 className="font-bold">{minutes}</h1>
+              <div className="text-2xl md:text-4xl">Minuta</div>
+            </div>
+            <div className="mb-8 font-bold">:</div>
+            <div className="flex flex-col items-center gap-1 sm:gap-8">
+              <h1 className="font-bold">{seconds}</h1>
+              <div className="text-2xl md:text-4xl">Vteřina</div>
+            </div>
+          </div>
         </div>
       )
     }
   }
+
   return isMounted ? <CountdownReact date={countdownDate} renderer={renderer} /> : null
 }
