@@ -2,7 +2,7 @@
 
 import CountdownReact, { CountdownRenderProps } from 'react-countdown'
 
-const countdownDate = new Date(2024, 8, 24, 13, 0, 0)
+const countdownDate = new Date(2024, 7, 24, 13, 0, 0)
 
 const Countdown = () => {
   const renderer = ({ days, hours, minutes, seconds, completed }: CountdownRenderProps) => {
