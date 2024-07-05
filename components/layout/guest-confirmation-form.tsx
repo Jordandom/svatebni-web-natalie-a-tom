@@ -28,18 +28,25 @@ const formSchema = z.object({
     message: 'Jméno a příjmení musí mít alespoň 5 znaků.',
   }),
   ucast_na_svatbe: z
-    .string()
-    .nullable()
-    .refine((val) => val === 'ano' || val === 'ne', {
+    .string({
       message: 'Musíte zvolit jednu z možností pro účast na svatbě.',
-    }),
-  ubytovani: z
-    .string()
+    })
     .nullable()
-    .refine((val) => val === 'ano' || val === 'ne', {
+    .refine((val) => val === 'ano' || val === 'ne'),
+  ubytovani: z
+    .string({
       message: 'Musíte zvolit jednu z možností pro ubytování.',
-    }),
+    })
+    .nullable()
+    .refine((val) => val === 'ano' || val === 'ne'),
   poznamka: z.string().optional(),
+  pocetDeti: z
+    .number({
+      message: 'Počet dětí je povinný pole a musí být větší nebo roven 0.',
+    })
+    .int()
+    .min(0),
+  jmenaDeti: z.string().optional(),
 })
 
 function GuestConfirmationForm() {
@@ -51,15 +58,18 @@ function GuestConfirmationForm() {
     defaultValues: {
       access_key: process.env.NEXT_PUBLIC_WEB3_FORM,
       jmeno_prijmeni: '',
-      ucast_na_svatbe: null,
-      ubytovani: null,
+      ucast_na_svatbe: undefined,
+      ubytovani: undefined,
       poznamka: '',
+      pocetDeti: 0,
+      jmenaDeti: '',
     },
   })
 
   const { reset } = form
 
   async function onSubmit(data: z.infer<typeof formSchema>) {
+    console.log('🚀 ~ onSubmit ~ data:', data)
     setIsLoading(true)
 
     await fetch('https://api.web3forms.com/submit', {
@@ -153,34 +163,65 @@ function GuestConfirmationForm() {
             <FormField
               control={form.control}
               name="ubytovani"
-              render={({ field }) => (
-                <FormItem className="flex flex-col items-start gap-4 rounded-md border p-4">
-                  <FormLabel>Zůstanete přes noc?</FormLabel>
-                  <FormControl>
-                    <div className="flex items-center gap-4">
-                      <div className="flex items-center gap-2">
-                        <FormLabel htmlFor="stay-over-night-yes">Ano</FormLabel>
-                        <Checkbox
-                          id="stay-over-night-yes"
-                          className="size-6"
-                          checked={field.value === 'ano'}
-                          onCheckedChange={() => field.onChange('ano')}
-                        />
+              render={({ field }) => {
+                return (
+                  <FormItem className="flex flex-col items-start gap-4 rounded-md border p-4">
+                    <FormLabel>
+                      Zůstanete přes noc? (Každý si hradí sám. Cena cca 800 Kč / osoba)
+                    </FormLabel>
+                    <FormControl>
+                      <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-2">
+                          <FormLabel htmlFor="stay-over-night-yes">Ano</FormLabel>
+                          <Checkbox
+                            id="stay-over-night-yes"
+                            className="size-6"
+                            checked={field.value === 'ano'}
+                            onCheckedChange={() => field.onChange('ano')}
+                          />
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <FormLabel htmlFor="stay-over-night-no">Ne</FormLabel>
+                          <Checkbox
+                            id="stay-over-night-no"
+                            className="size-6"
+                            checked={field.value === 'ne'}
+                            onCheckedChange={() => field.onChange('ne')}
+                          />
+                        </div>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <FormLabel htmlFor="stay-over-night-no">Ne</FormLabel>
-                        <Checkbox
-                          id="stay-over-night-no"
-                          className="size-6"
-                          checked={field.value === 'ne'}
-                          onCheckedChange={() => field.onChange('ne')}
-                        />
-                      </div>
+                    </FormControl>
+                    <div className="flex w-full flex-col gap-2">
+                      <FormField
+                        control={form.control}
+                        name="pocetDeti"
+                        render={({ field }) => (
+                          <FormItem className="flex flex-col gap-2">
+                            <FormLabel>Počet dětí</FormLabel>
+                            <Input {...field} type="number" min="0" className="text-blue" />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="jmenaDeti"
+                        render={({ field }) => (
+                          <FormItem className=" flex flex-col gap-2">
+                            <FormLabel>Jména dětí</FormLabel>
+                            <Input
+                              {...field}
+                              type="text"
+                              className="text-blue"
+                              placeholder="Jména oddělená čárkou"
+                            />
+                          </FormItem>
+                        )}
+                      />
                     </div>
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
+                    <FormMessage />
+                  </FormItem>
+                )
+              }}
             />
             <FormField
               control={form.control}

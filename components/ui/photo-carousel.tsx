@@ -44,6 +44,9 @@ export const PhotoCarousel = () => {
               placeholder="blur"
               blurDataURL={placeholderImage}
               className="object-cover"
+              priority={false} // Do not prioritize these images for loading
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Responsive sizes
+              // loading="lazy" // Lazy load the images
             />
           </CarouselItem>
         ))}
