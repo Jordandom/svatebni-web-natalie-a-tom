@@ -41,11 +41,10 @@ const formSchema = z.object({
     .refine((val) => val === 'ano' || val === 'ne'),
   poznamka: z.string().optional(),
   pocetDeti: z
-    .number({
+    .string({
       message: 'Počet dětí je povinný pole a musí být větší nebo roven 0.',
     })
-    .int()
-    .min(0),
+    .optional(),
   jmenaDeti: z.string().optional(),
 })
 
@@ -61,7 +60,7 @@ function GuestConfirmationForm() {
       ucast_na_svatbe: undefined,
       ubytovani: undefined,
       poznamka: '',
-      pocetDeti: 0,
+      pocetDeti: '',
       jmenaDeti: '',
     },
   })
@@ -198,7 +197,13 @@ function GuestConfirmationForm() {
                         render={({ field }) => (
                           <FormItem className="flex flex-col gap-2">
                             <FormLabel>Počet dětí</FormLabel>
-                            <Input {...field} type="number" min="0" className="text-blue" />
+                            <Input
+                              {...field}
+                              type="number"
+                              min="0"
+                              step="1"
+                              className="text-blue"
+                            />
                           </FormItem>
                         )}
                       />
