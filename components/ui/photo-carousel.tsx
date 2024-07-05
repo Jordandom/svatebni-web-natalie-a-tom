@@ -35,7 +35,7 @@ export const PhotoCarousel = () => {
           <CarouselItem key={image.name} className="md:basis-1/2 lg:basis-1/3">
             <Image
               width={150}
-              height={150}
+              height={300}
               key={image.name}
               src={image.src}
               alt={image.name}
