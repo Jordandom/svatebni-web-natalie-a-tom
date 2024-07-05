@@ -38,8 +38,7 @@ export const PhotoCarousel = () => {
               key={image.name}
               src={image.src}
               alt={image.name}
-              quality={100}
-              // loading={index >= 3 ? 'lazy' : 'eager'}
+              quality={50}
               className="object-cover"
             />
           </CarouselItem>
