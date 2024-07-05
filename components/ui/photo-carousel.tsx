@@ -9,6 +9,9 @@ import {
 } from '@/components/ui/carousel'
 import Autoplay from 'embla-carousel-autoplay'
 
+// Placeholder image for loading
+const placeholderImage = '/placeholder.jpeg'
+
 const images = Array.from({ length: 22 }, (_, index) => ({
   name: `${index + 1}`,
   src: `/${index + 1}.jpeg`,
@@ -38,7 +41,8 @@ export const PhotoCarousel = () => {
               key={image.name}
               src={image.src}
               alt={image.name}
-              // quality={100}
+              placeholder="blur"
+              blurDataURL={placeholderImage}
               className="object-cover"
             />
           </CarouselItem>
