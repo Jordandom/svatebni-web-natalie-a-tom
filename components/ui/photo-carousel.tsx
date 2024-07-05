@@ -34,12 +34,13 @@ export const PhotoCarousel = () => {
         {images.map((image) => (
           <CarouselItem key={image.name} className="md:basis-1/2 lg:basis-1/3">
             <img
-              width={800} // Adjust this based on your actual image dimensions
-              height={600} // Adjust this based on your actual image dimensions
+              width="100%"
+              height="auto"
               key={image.name}
               src={image.src}
               alt={image.name}
-              className="object-cover" // This ensures the image covers the container properly
+              className="object-cover"
+              loading="lazy"
             />
           </CarouselItem>
         ))}
