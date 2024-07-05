@@ -9,19 +9,22 @@ const OurStory = () => {
       </H1>
       <div className="flex flex-col gap-4">
         <div>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, deserunt libero, ad atque
-          nostrum cumque harum sit eligendi dolorem fugiat dicta quisquam corporis unde accusamus
-          provident culpa aliquid. Rem, repellat?
+          Náš příběh začal v dubnu 2020 na Letišti Václava Havla v Praze. Byl covid a tvrdý lock
+          down, ale nám stačil pouze služební vchod č.&nbsp;25, aby přeskočila první jiskra. Nebylo
+          lehké pokračovat v seznamování, a proto Naty společně s kamarádkou Verčou vymyslely “akci
+          shaker”, aby se prolomily další ledy.
         </div>
         <div>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, deserunt libero, ad atque
-          nostrum cumque harum sit eligendi dolorem fugiat dicta quisquam corporis unde accusamus
-          provident culpa aliquid. Rem, repellat?
+          Po neustalém flirtování, vyhlížení, jestli není zrovna ten druhý v práci a nespočtu
+          krásných zpráv jsme si po půl roce dali první rande. Restaurace, kina, divadla, to vše
+          bylo zavřené, proto Tomáš pozval Naty na procházku a domácí večeři. Kdyby Naty tušila, že
+          procházka bude mít 10 kiláčků, nebrala by si kozačky na podpatku. Doma ji však čekala
+          zasloužená královská večeře - zapečené těstoviny.
         </div>
         <div>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, deserunt libero, ad atque
-          nostrum cumque harum sit eligendi dolorem fugiat dicta quisquam corporis unde accusamus
-          provident culpa aliquid. Rem, repellat?
+          Po třech letech, nespočtu dovolených, jedné kočce, společném stěhování, dvou titulech a
+          skoro dvouměsíčnímu vojenskému odloučení se Tomáš vyslovil na tom nejkrásnějším místě,
+          kterým mohl být jedině Key West na Floridě. Ale to nejkrásnější nás teprve čeká.
         </div>
       </div>
       <Meteors number={20} />

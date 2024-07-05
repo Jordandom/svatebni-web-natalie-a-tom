@@ -10,24 +10,10 @@ import {
 import Autoplay from 'embla-carousel-autoplay'
 import AutoHeight from 'embla-carousel-auto-height'
 
-const images = [
-  {
-    name: 'chameleon',
-    src: '/chameleon.jpg',
-  },
-  {
-    name: 'cat',
-    src: '/cat.webp',
-  },
-  {
-    name: 'chameleon-zepredu',
-    src: '/chameleon-zepredu.webp',
-  },
-  {
-    name: 'cat-another-cat',
-    src: '/cat.webp',
-  },
-]
+const images = Array.from({ length: 22 }, (_, index) => ({
+  name: `${index + 1}`,
+  src: `/${index + 1}.jpeg`,
+}))
 
 export const PhotoCarousel = () => {
   return (
