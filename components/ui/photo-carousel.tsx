@@ -38,7 +38,7 @@ export const PhotoCarousel = () => {
               key={image.name}
               src={image.src}
               alt={image.name}
-              quality={50}
+              // quality={100}
               className="object-cover"
             />
           </CarouselItem>
