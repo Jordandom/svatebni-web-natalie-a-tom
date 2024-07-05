@@ -40,6 +40,7 @@ export const PhotoCarousel = () => {
               src={image.src}
               alt={image.name}
               className="w-full"
+              quality={100}
             />
           </CarouselItem>
         ))}
