@@ -8,7 +8,7 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel'
 import Autoplay from 'embla-carousel-autoplay'
-import AutoHeight from 'embla-carousel-auto-height'
+// import AutoHeight from 'embla-carousel-auto-height'
 
 const images = Array.from({ length: 22 }, (_, index) => ({
   name: `${index + 1}`,
@@ -24,9 +24,9 @@ export const PhotoCarousel = () => {
       }}
       plugins={[
         Autoplay({
-          delay: 2_000,
+          delay: 3_000,
         }),
-        AutoHeight(),
+        // AutoHeight(),
       ]}
       className="w-full"
     >
@@ -35,8 +35,8 @@ export const PhotoCarousel = () => {
           <CarouselItem key={image.name} className="md:basis-1/2 lg:basis-1/3">
             <Image
               layout="responsive"
-              width={800} // Adjust this based on your actual image dimensions
-              height={600} // Adjust this based on your actual image dimensions
+              width={800}
+              height={600}
               key={image.name}
               src={image.src}
               alt={image.name}
