@@ -20,7 +20,6 @@
     "@typescript-eslint/eslint-plugin": "^7.13.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
-    "embla-carousel-auto-height": "^8.1.5",
     "embla-carousel-autoplay": "^8.1.5",
     "embla-carousel-react": "^8.1.5",
     "framer-motion": "^11.2.10",

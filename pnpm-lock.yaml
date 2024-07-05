@@ -38,9 +38,6 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
-      embla-carousel-auto-height:
-        specifier: ^8.1.5
-        version: 8.1.5(embla-carousel@8.1.5)
       embla-carousel-autoplay:
         specifier: ^8.1.5
         version: 8.1.5(embla-carousel@8.1.5)
@@ -928,11 +925,6 @@ packages:
 
   eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
-
-  embla-carousel-auto-height@8.1.5:
-    resolution: {integrity: sha512-nYUQjcsobrgHvvJ1SYY12CHnZ/rEVYhu2Jmg9jVsroULBi7YlXeMcPJDrZOQjXg10VU07LJcP9t5KxzRaDU5rg==}
-    peerDependencies:
-      embla-carousel: 8.1.5
 
   embla-carousel-autoplay@8.1.5:
     resolution: {integrity: sha512-9pHIezRqiO9yism7wRFwmM1j/W9c9hBNX4hq3F4aTPbK84M0M57ryG8QUwhbsTGJbDoBBVTm//YEd0T6i/5YgA==}
@@ -3173,10 +3165,6 @@ snapshots:
   dom-confetti@0.2.2: {}
 
   eastasianwidth@0.2.0: {}
-
-  embla-carousel-auto-height@8.1.5(embla-carousel@8.1.5):
-    dependencies:
-      embla-carousel: 8.1.5
 
   embla-carousel-autoplay@8.1.5(embla-carousel@8.1.5):
     dependencies:

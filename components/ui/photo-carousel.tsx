@@ -8,7 +8,6 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel'
 import Autoplay from 'embla-carousel-autoplay'
-// import AutoHeight from 'embla-carousel-auto-height'
 
 const images = Array.from({ length: 22 }, (_, index) => ({
   name: `${index + 1}`,
@@ -24,14 +23,13 @@ export const PhotoCarousel = () => {
       }}
       plugins={[
         Autoplay({
-          delay: 3_000,
+          delay: 4_000,
         }),
-        // AutoHeight(),
       ]}
       className="w-full"
     >
       <CarouselContent>
-        {images.map((image, index) => (
+        {images.map((image) => (
           <CarouselItem key={image.name} className="md:basis-1/2 lg:basis-1/3">
             <Image
               layout="responsive"
@@ -41,8 +39,8 @@ export const PhotoCarousel = () => {
               src={image.src}
               alt={image.name}
               quality={100}
-              loading={index >= 3 ? 'lazy' : 'eager'}
-              className="object-cover" // This ensures the image covers the container properly
+              // loading={index >= 3 ? 'lazy' : 'eager'}
+              className="object-cover"
             />
           </CarouselItem>
         ))}
