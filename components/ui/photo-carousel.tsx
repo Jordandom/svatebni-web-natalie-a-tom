@@ -1,5 +1,5 @@
 'use client'
-// import Image from 'next/image'
+import Image from 'next/image'
 import {
   Carousel,
   CarouselContent,
@@ -31,16 +31,18 @@ export const PhotoCarousel = () => {
       className="w-full"
     >
       <CarouselContent>
-        {images.map((image) => (
+        {images.map((image, index) => (
           <CarouselItem key={image.name} className="md:basis-1/2 lg:basis-1/3">
-            <img
-              width="100%"
-              height="auto"
+            <Image
+              layout="responsive"
+              width={800} // Adjust this based on your actual image dimensions
+              height={600} // Adjust this based on your actual image dimensions
               key={image.name}
               src={image.src}
               alt={image.name}
-              className="object-cover"
-              loading="lazy"
+              quality={100}
+              loading={index >= 3 ? 'lazy' : 'eager'}
+              className="object-cover" // This ensures the image covers the container properly
             />
           </CarouselItem>
         ))}
