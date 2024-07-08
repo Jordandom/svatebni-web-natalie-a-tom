@@ -32,6 +32,13 @@ export const Schedule = () => {
               </div>
             </div>
           ))}
+          <div className="font-bold">V průběhu dne se také můžete těšit na:</div>
+          {activities.map((activity) => (
+            <div key={activity.name} className="flex items-center gap-4">
+              <Image src={activity.src} width={50} height={50} alt={activity.name} />
+              <h3 className="font-bold">{activity.text}</h3>
+            </div>
+          ))}
         </div>
       </div>
     </div>
@@ -43,7 +50,7 @@ const images = [
     name: 'heart',
     src: '/heart.svg',
     text: 'Příjezd hostů',
-    time: '12:00',
+    time: '12:15-12:30',
   },
   {
     name: 'rings',
@@ -54,55 +61,46 @@ const images = [
   {
     name: 'camera',
     src: '/camera.svg',
-    text: 'Společné focení',
+    text: 'Slavnostní přípitek a společná fotografie',
     time: '14:00',
-  },
-  {
-    name: 'glasses',
-    src: '/glasses.svg',
-    text: 'Slavnostní přípitek',
-    time: '14:55',
   },
   {
     name: 'lunch',
     src: '/lunch.svg',
     text: 'Slavnostní oběd',
-    time: '15:00',
+    time: '14:30',
   },
+]
+
+const activities = [
   {
     name: 'cake',
     src: '/cake.svg',
     text: 'Krájení svatebního dortu',
-    time: '15:30',
   },
   {
     name: 'dance',
     src: '/dance.svg',
     text: 'První novomanželský tanec',
-    time: '15:30',
   },
   {
     name: 'flower-throw',
     src: '/flower-throw.svg',
     text: 'Vyplétání svatební kytice',
-    time: '17:00',
   },
   {
     name: 'toast',
     src: '/toast.svg',
     text: 'Zábava a hry',
-    time: '17:30',
   },
   {
     name: 'food',
     src: '/food.svg',
     text: 'Raut',
-    time: '18:00',
   },
   {
     name: 'party',
     src: '/party.svg',
-    text: 'Zábava až do rána',
-    time: '20:00',
+    text: 'A hlavně na zábavu až do rána',
   },
 ]
