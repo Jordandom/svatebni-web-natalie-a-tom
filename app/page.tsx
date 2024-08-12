@@ -39,9 +39,9 @@ export default function Home() {
             <DressCode />
             <GuestConfirmationForm />
             <Map />
-            <div className="ml-auto flex flex-col text-sm font-semibold">
+            <div className="flex flex-col text-lg font-semibold">
               <div>Vytvořeno: Ing. Jordan Domovčijski</div>
-              <a href="tel:+420777978066">+420 777978066</a>
+              <a href="tel:+420777978066">+420 777 978 066</a>
               <div>jordan.domovcijski@gmail.com</div>
             </div>
           </div>

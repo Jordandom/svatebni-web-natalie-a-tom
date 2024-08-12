@@ -1,14 +1,8 @@
 'use client'
 
-import 'leaflet/dist/leaflet.css'
-import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css'
-import 'leaflet-defaulticon-compatibility'
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import { H1 } from '@/components/ui/typography'
 
 const Map = () => {
-  const position: [number, number] = [49.748564067315094, 13.381859299917464]
-
   return (
     <div className="flex w-full flex-col items-center gap-4">
       <H1 className="uppercase">
@@ -19,20 +13,15 @@ const Map = () => {
         <p className="text-center">Courtyard by Marriott</p>
         <p className="text-center">sady 5. května 57, 301 00 Plzeň 3</p>
       </div>
-      <MapContainer
-        className="h-[600px] w-full"
-        center={position}
-        zoom={13}
-        scrollWheelZoom={false}
-      >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        <Marker position={position}>
-          <Popup>Poloha místa svatby</Popup>
-        </Marker>
-      </MapContainer>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2577.9936940150374!2d13.378986876823616!3d49.74856243765207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470af1ef997f5db1%3A0xa4048e0d18dc3c89!2sCourtyard%20Pilsen!5e0!3m2!1scs!2scz!4v1723487176674!5m2!1scs!2scz"
+        width="100%"
+        height="600"
+        style={{ border: 0 }}
+        allowFullScreen
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+      />
     </div>
   )
 }
